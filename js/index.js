@@ -5,10 +5,9 @@ var phoneValid;
 
 
 //state
-var states = ['Maharastra','Goa','Andhra Pradesh',
-'Arunachal Pradesh','Assam','Bihar',
-'Chhattisgarh','Gujrat','Haryana','Himachal Pradesh','Jharkhand',
-'Karnataka','Kerala','Madhya Pradesh','Manipur','Meghalaya',
+var states = ['Maharastra','Goa','A.P.','Arunachal','Assam','Bihar',
+'Chhattisgarh','Gujrat','Haryana','Himachal','Jharkhand',
+'Karnataka','Kerala','M.P.','Manipur','Meghalaya',
 'Mizoram','Nagaland','Odisha','Punjab','Rajasthan',
 'Sikkim','Tamil Nadu','Telangana','Tripura','Uttarakhand','Utterpradesh',
 'West Bangal','Andaman','Chandigarh','Daman','Delhi','Jammu Kashmir',
@@ -19,20 +18,27 @@ var stateCode =  [27,54,81,108,135,162,189,216,243,270,297,324,351,378,405,432,
 
 var stateName = document.getElementById('state-name');
 
+//Error Messages
+var errorNameMsg = document.getElementById('name-error'); 
+var phoneNoErrorMsg = document.getElementById('no-error');
+var emailErrorMsg = document.getElementById('email-error');
+
 //Name Validation
 
 var fullname = document.getElementById('full-name');
 fullname.addEventListener('input',function(n){
-    var nameFormat = /^[a-zA-Z]{4,} [a-zA-Z]{4,}$/;
+    var nameFormat = /^[a-zA-Z]{4,} [a-zA-Z]{4,}( [a-zA-Z]{4,})?$/;
     var currentName =  n.target.value
 
     if(!nameFormat.test(currentName))
     {
         fullname.style.backgroundColor = 'lightcoral';
+        errorNameMsg.style.display = 'block';
         finalname = false;
     }
     else{
         fullname.style.backgroundColor = 'white';
+        errorNameMsg.style.display = 'none';
         finalname = fullname.value;
     }
 
@@ -54,10 +60,12 @@ email.addEventListener('input',function(e){
     if(!emailFormat.test(currentEmail))
     {
         email.style.backgroundColor = 'lightcoral';
+        emailErrorMsg.style.display = 'block';
         eMail = false;
     }
     else{
         email.style.backgroundColor = 'white';
+        emailErrorMsg.style.display = 'none';
         eMail =  email.value;
         
     }
@@ -98,11 +106,13 @@ phoneNumber.addEventListener('input',function(p){
    if(!phonef.test(currentPhoneNo))
    {
        phoneNumber.style.backgroundColor='lightcoral';
+       phoneNoErrorMsg.style.display = 'block';
    }
    else{
        phoneNumber.value = formatPhoneNumber(currentPhoneNo);
-       phoneNumber.style.textIndent = '140px';
+       phoneNumber.style.textIndent = '150px';
         phoneNumber.style.backgroundColor ='white';
+        phoneNoErrorMsg.style.display = 'none';
         
         if(match[1]>621 && match[1]<799){
             companyLogo.style.display = 'inline-block';
@@ -122,6 +132,7 @@ phoneNumber.addEventListener('input',function(p){
         }
         else{
             validCompany = false;
+            phoneNoErrorMsg.style.display = 'block';
         }
         var i;
         for(i = 0;i<stateCode.length;i++){
@@ -187,13 +198,16 @@ submitBtn.addEventListener('click',function(b){
     else{
 
         if(!nameValid){
-            alert('Please Enter Valid Name');
+            errorNameMsg.style.display = 'block';
+            // alert('Please Enter Valid Name');
         }
         else if(!emailValid){
-            alert('Please Enter Valid Email');
+            emailErrorMsg.style.display = 'block';
+            // alert('Please Enter Valid Email');
         }
         else if(!phoneValid){
-            alert('Please Enter Valid Phone Number');
+            phoneNoErrorMsg.style.display = 'block';
+            // alert('Please Enter Valid Phone Number');
         }
         else{
             alert('Please Enter Valid Inputs');
