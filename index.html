@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Form</title>
+        <link rel="stylesheet" href="../css/index.css">
+    </head>
+    <body>
+        <main id="main">
+            <section id="section1">
+                <form id="form1" >
+                    <h2>Registratin Form</h2>
+                    <p>Full Name</p>
+                    <input type="text" name="fullname" id="full-name" required>
+                    <p>E-mail</p>
+                    <input type="email" name="email" id="email-id" required>
+                    <p>Phone Number</p>
+                    <div>
+                        <input type="text" required id="phone-no" class="phone_number" name="phone-no"><br>
+                        <div id="container">
+                            <img id="logo" src="https://image.shutterstock.com/image-vector/image-icon-trendy-flat-style-260nw-643080895.jpg" alt="Operator">
+                        </div>
+                        <div id="state">
+                            <span id="state-name">State</span>
+                        </div>
+                    </div> 
+                    <input type="submit" id="submit-btn" value="Submit">
+                </form>
+            </section>
+
+            <section id="section2">
+                <form id="form2">
+                    <h2>Verfication Form</h2>
+                    <strong>Dear,</strong><br>
+                    <span id="name-span">Name</span><br>
+                    <div>
+                        <p id="otp-msg">Thank you for inquiry. A 4 digit verification number has been sent to your phone number:</p>
+                    </div>
+                    <p>Phone Number:</p>
+                    <span id="number">7709374925</span><br>
+                    <p>Enter OTP :</p>
+                    <input maxlength="4" type="number" required id="otp"><br>
+                    <input type="submit" id="verification-btn" value="Verify" >
+                </form>
+            </section>
+        </main>
+    </body>
+    <script type="text/javascript" src="../Js/index.js"></script>
+</html>
