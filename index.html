@@ -8,12 +8,16 @@
         <main id="main">
             <section id="section1">
                 <form id="form1" >
-                    <h2>Registratin Form</h2>
-                    <p>Full Name</p>
+                    <h2>Registration Form</h2>
+                    <p>Full Name<span class="compulsary">*</span></p>
                     <input type="text" name="fullname" id="full-name" required>
-                    <p>E-mail</p>
+                    <p id="name-error">Number and Special Symbol are not allowed(min 4 character)</p>
+
+                    <p>E-mail<span class="compulsary">*</span></p>
                     <input type="email" name="email" id="email-id" required>
-                    <p>Phone Number</p>
+                    <p id="email-error">Enter valid Email</p>
+
+                    <p>Phone Number<span class="compulsary">*</span></p>
                     <div>
                         <input type="text" required id="phone-no" class="phone_number" name="phone-no"><br>
                         <div id="container">
@@ -23,6 +27,8 @@
                             <span id="state-name">State</span>
                         </div>
                     </div> 
+                    <p id="no-error">Only numbers Allowed</p>
+
                     <input type="submit" id="submit-btn" value="Submit">
                 </form>
             </section>
