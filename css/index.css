@@ -9,6 +9,7 @@ body{
 }
 #form1,#form2{
     width: 320px;
+    /* height: 380px; */
     margin: 48px auto;
     padding: 24px;
     border-radius: 5px;
@@ -90,6 +91,7 @@ section p{
     font-size: 14px;
     padding-left: 0px;
     margin: 20px 0px;
+    font-style: italic;
 }
 #form2 > div{
     display: none;
@@ -114,4 +116,25 @@ section p{
 #logo{
     width: 24px;
     height: 24px;
+}
+
+
+/* Compulsary Symbol */
+.compulsary{
+    color: red;
+    display: inline-block;
+}
+
+/* Error Messages */
+#name-error,#email-error,#no-error{
+    color: red;
+    position: relative;
+    font-size: 12px;
+    top: -10px;
+    padding: 6px;
+    display: none;
+    font-style: italic;
+}
+#no-error{
+    margin-top: -35px;
 }
