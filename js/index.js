@@ -54,7 +54,7 @@ fullname.addEventListener('input',function(n){
 
 var email = document.getElementById('email-id');
 email.addEventListener('input',function(e){
-    var emailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    var emailFormat  = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
     var currentEmail = e.target.value
     // console.log(emailFormat.test(currentEmail));
     if(!emailFormat.test(currentEmail))
@@ -168,13 +168,8 @@ var verificationBtn = document.getElementById('verification-btn');
 //otp geration
 
 var otp = 1;
-var count=0;
+var count=1;
 
-function otpGenrator(){
-    otp = Math.floor(1000 + Math.random() * 9000);
-    count++; 
-    alert('OTP given count  ' + count +'\nYour One Time Password is  :  '+otp);
-}
 
 //display events
 var textmsg = document.querySelector('#form2 > div');
@@ -193,7 +188,8 @@ submitBtn.addEventListener('click',function(b){
         registrationForm.style.display = 'none';
         b.preventDefault();
         displayForm();
-        otpGenrator();
+        otp = Math.floor(1000 + Math.random() * 9000);
+        alert('OTP given count  ' + count +'\nYour One Time Password is  :  '+otp);
     }
     else{
 
@@ -231,11 +227,12 @@ verificationBtn.addEventListener('click',function(e){
             e.preventDefault();
             inputOtp.value = '';
             displayForm();
-            otpGenrator();
+            count++; 
+            alert('OTP given count  ' + count +'\nYour One Time Password is  :  '+otp);
         }
     }
     else{
-        open('./404_Error.html');
+        open('http://pixel6.co/404');
     }
    
 })
