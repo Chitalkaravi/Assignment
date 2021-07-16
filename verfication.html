@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Verification Form</title>
+        <link rel="stylesheet" href="./css/index.css">
+        <link rel="stylesheet" href="./css/verification.css">
+    </head>
+    <body>
+        <main>
+            <section>
+                <form>
+                    <h2>Verfication Form</h2>
+
+                    <strong>Dear,</strong><br>
+
+                    <label>Name: <span>Avinash</span></label><br>
+                    <span>Thank you for inquiry. A 4 digit verification number has been sent to your phone number:</span>
+
+                    <label>Phone Number: </label>
+                    <span>7709374925</span><br>
+
+                    <label for="otp">Enter OTP: </label>
+                    <input type="text" name="otp-no" autofocus id="otp" maxlength="4"/>
+
+                    <input type="submit" id="verification-btn" value="Verify" >
+                </form>
+            </section>
+        </main>
+    </body>
+    <script>
+        var flag = window.localStorage.getItem('flag');
+        if(parseInt(flag)!==1){
+            window.close();
+            open('http://pixel6.co/404');
+        }
+        var firstName = window.localStorage.getItem('firstName');
+        var phoneNumber = window.localStorage.getItem('phoneNumber');
+        var otp = window.localStorage.getItem('otp');
+        document.querySelector('label > span').innerHTML = firstName;
+        document.querySelector('label + span').innerHTML = phoneNumber;
+        count = 1;
+        var inputOtp = document.getElementById('otp');
+        var verificationBtn = document.getElementById('verification-btn');
+        
+        verificationBtn.addEventListener('click',function(e){
+            if(count<3){
+                if(parseInt(inputOtp.value) === parseInt(otp)){
+                    window.close();
+                    open('http://pixel6.co');
+                }
+                else{
+                    e.preventDefault();
+                    inputOtp.value = '';
+                    count++; 
+                    alert('OTP given count  ' + count +'\nYour One Time Password is  :  '+otp);
+                }
+            }
+            else{
+                window.close();
+                open('http://pixel6.co/404');
+            }
+   
+    })
+    </script>
+    <script type="text/javascript" src="./Js/verification.js"></script>
+</html>
