@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registration Form</title>
+        <link rel="stylesheet" href="./css/index.css">
+    </head>
+    <body>
+        <main>
+            <section>
+                <form>
+                    <h2>Registration Form</h2>
+                    
+                    <label for="full-name">Full Name<span>*</span></label>
+                    <input type="text" name="fullname" id="full-name" required>
+                    <p>Number and Special Symbol are not allowed(min 4 character)</p>
+
+                    <label for="email-id">E-Mail<span>*</span></label>
+                    <input type="email" name="email" id="email-id" required>
+                    <p>Enter valid Email</p><br>
+
+                    <label for="phone-no">Phone Number<span>*</span></label>
+                    <div>
+                        <input type="text" required id="phone-no" class="phone_number" name="phone-no" maxlength="14"><br>
+                        <div>
+                            <img src="./images/logo.jpg" alt="Operator">
+                            <img src="./images/jio.svg" alt="Jio">
+                            <img src="./images/idea.svg" alt="Idea">
+                            <img src="./images/vodafone.png" alt="Vodafone">
+                        </div>
+                        <span>State</span>
+                     </div> 
+                    <p>Only numbers Allowed</p>
+
+                    <input type="submit" id="submit-btn" value="Submit">
+                </form>
+            </section>
+        </main>
+    </body>
+    <script type="text/javascript" src="./Js/index.js"></script>
+</html>
